@@ -1,0 +1,9 @@
+class Config :
+    JWT_SECRET_KEY = 'yhacademy1029##heelo'
+    JWT_ACCESS_TOKEN_EXPIRES = False
+    PROPAGATE_EXCEPTIONS = True
+
+    ACCESS_KEY = 'AKIAUG5BIV4JCFV26JP2'
+    SECRET_ACCESS = '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'
+
+    
