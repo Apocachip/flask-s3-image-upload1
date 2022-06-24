@@ -29,7 +29,7 @@ class FileUploadResource(Resource) :
         # 파일명을 우리가 변경해준다.
         # 파일명은, 유니크하게 만들어야 한다.
         current_time = datetime.now()
-        new_file_name = current_time.isoformat().replace(':', '_')
+        new_file_name = current_time.isoformat().replace(':', '_') + '.jpg'
 
         # 유저가 올린 파일의 이름을, 내가 만든 파일명으로 변경
         file.filename = new_file_name
@@ -43,7 +43,7 @@ class FileUploadResource(Resource) :
         s3 = boto3.client('s3', aws_access_key_id = Config.ACCESS_KEY, aws_secret_access_key_id = Config.SECRET_ACCESS)
 
         try :
-            pass
+            s3.upload_fileobj(file, Config.S3_BUCKET, ExtraArgs = {'ACL' : 'public-read', 'ContentType' : file.content_type})
         
         except Exception as e :
             pass
