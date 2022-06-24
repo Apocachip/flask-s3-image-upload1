@@ -10,5 +10,4 @@ class Config :
     # 버킷 이름과 이미지 주소 세팅
     S3_BUCKET = 'ifif3526-image-test'
     S3_LOCATION = 'https://ifif3526-image-test.s3.ap-northeast-2.amazonaws.com/'
-
     
