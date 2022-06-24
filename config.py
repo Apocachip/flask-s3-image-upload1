@@ -8,7 +8,7 @@ class Config :
     SECRET_ACCESS = 'B3pOZShGvZZav/fCV1HhHX6waKECsCbWPcEzS5c6'
 
     # 버킷 이름과 이미지 주소 세팅
-    S3_BUCKET = 'https://ifif3526-image-test.s3.ap-northeast-2.amazonaws.com'
-    
+    S3_BUCKET = 'ifif3526-image-test'
+    S3_LOCATION = 'https://ifif3526-image-test.s3.ap-northeast-2.amazonaws.com/'
 
     

@@ -40,13 +40,12 @@ class FileUploadResource(Resource) :
         # boto3 라이브러리 설치
         # pip install boto 3
 
-        s3 = boto3.client('s3', aws_access_key_id = Config.ACCESS_KEY, aws_secret_access_key_id = Config.SECRET_ACCESS)
+        s3 = boto3.client('s3', aws_access_key_id = Config.ACCESS_KEY, aws_secret_access_key = Config.SECRET_ACCESS)
 
         try :
-            s3.upload_fileobj(file, Config.S3_BUCKET, ExtraArgs = {'ACL' : 'public-read', 'ContentType' : file.content_type})
+            s3.upload_fileobj(file, Config.S3_BUCKET, file.filename, ExtraArgs = {'ACL' : 'public-read', 'ContentType' : file.content_type})
         
         except Exception as e :
-            pass
+            return {'error' : str(e)}, 500
 
-
-        return
+        return {'result' : 'success', 'imgUrl' : Config.S3_LOCATION + file.filename}
